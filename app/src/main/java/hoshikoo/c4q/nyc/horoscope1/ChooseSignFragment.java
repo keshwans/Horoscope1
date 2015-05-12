@@ -1,7 +1,6 @@
 package hoshikoo.c4q.nyc.horoscope1;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,24 +12,24 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ChooseSign.ChooseSignFragmentInteractionListener} interface
+ * {@link ChooseSignFragment.ChooseSignFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ChooseSign#newInstance} factory method to
+ * Use the {@link ChooseSignFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChooseSign extends Fragment {
+public class ChooseSignFragment extends Fragment {
 
     private ChooseSignFragmentInteractionListener mListener;
-    private static ChooseSign fragment = null;
+    private static ChooseSignFragment fragment = null;
 
-    public static ChooseSign newInstance() {
+    public static ChooseSignFragment newInstance() {
         if (fragment == null) {
-            fragment = new ChooseSign();
+            fragment = new ChooseSignFragment();
         }
         return fragment;
     }
 
-    public ChooseSign() {
+    public ChooseSignFragment() {
         // Required empty public constructor
     }
 
@@ -64,8 +63,19 @@ public class ChooseSign extends Fragment {
 
     private View.OnClickListener signSelectButtonListner = (new View.OnClickListener() {
         @Override
-        public void onClick(View v) {
-            String sign = "aries";
+        public void onClick(View view) {
+
+            String sign = "";
+
+            if (view.getId() == R.id.button_Aries) {
+                sign = "Aries";
+            }
+            else if (view.getId() == R.id.button_Taurus) {
+                sign = "Taurus";
+            }
+            else if (view.getId() == R.id.button_Gemini) {
+                sign = "Gemini";
+            }
 
             if (mListener != null) {
                 mListener.onSignChosen(sign);
@@ -80,7 +90,7 @@ public class ChooseSign extends Fragment {
             mListener = (ChooseSignFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement ChooseSignFragmentInteractionListener");
         }
     }
 

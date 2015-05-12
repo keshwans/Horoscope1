@@ -29,7 +29,8 @@
             android:nestedScrollingEnabled="true"
             android:singleLine="true"
             android:minWidth="120dp"
-            android:onClick="showDialog"/>
+            android:onClick="showDialog"
+            android:tag="Aries"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -42,7 +43,8 @@
             android:layout_marginRight="49dp"
             android:layout_marginEnd="49dp"
             android:minWidth="120dp"
-            android:nestedScrollingEnabled="false" />
+            android:nestedScrollingEnabled="false"
+            android:tag="Taurus"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -54,7 +56,8 @@
             android:layout_alignLeft="@+id/button_Aries"
             android:layout_alignStart="@+id/button_Aries"
             android:singleLine="true"
-            android:minWidth="120dp" />
+            android:minWidth="120dp"
+            android:tag="Taurus"/>
 
         <Button
             android:layout_width="wrap_content"

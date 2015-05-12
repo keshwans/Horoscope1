@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ChooseSign.ChooseSignFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        ChooseSignFragment.ChooseSignFragmentInteractionListener,
+        CompatibilityFragment.CompatibilityFragmentListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -27,6 +29,8 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+    private String chosenSign = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +53,17 @@ public class MainActivity extends ActionBarActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (position == 0) {
-            Fragment chooseSignFragment = ChooseSign.newInstance();
+            Fragment chooseSignFragment = ChooseSignFragment.newInstance();
             fragmentManager.beginTransaction()
                     .replace(R.id.container, chooseSignFragment)
+                    .commit();
+
+            return;
+        }
+        if (position == 2) {
+            Fragment compatFragment = CompatibilityFragment.getInstance();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, compatFragment)
                     .commit();
 
             return;
@@ -114,8 +126,13 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onSignChosen(String sign) {
-        Toast.makeText(this, "ChooseSign: sign selected: " + sign, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ChooseSignFragment: sign selected: " + sign, Toast.LENGTH_SHORT).show();
+        chosenSign = sign;
+    }
 
+    @Override
+    public void onCompatiblityDone() {
+        Toast.makeText(this, "compatibility Fragment callback", Toast.LENGTH_SHORT).show();
     }
 
     /**
