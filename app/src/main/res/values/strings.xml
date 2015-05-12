@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Horoscope1</string>
+
+    <string name="title_section1">Choose your zodiac sign</string>
+    <string name="title_section2">Enter your birthday</string>
+    <string name="title_section3">Romantic compatibility</string>
+    <string name="title_section4">Horoscope Game</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="blank_fragment_choose_sign">Hello blank choose sign fragment</string>
+    <string name="blank_fragment_placeholder">Hello blank placeeholder fragment</string>
+
+
+    <string name="chose_zodiac_sign_fragment">Please chose your zodiac sign</string>
+
+</resources>
